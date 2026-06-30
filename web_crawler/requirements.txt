@@ -1,0 +1,11 @@
+flask
+flask-login 
+flask-sqlalchemy 
+flask-wtf 
+flask-bcrypt 
+requests 
+beautifulsoup4 
+scrapy 
+selenium 
+pymysql
+email-validator

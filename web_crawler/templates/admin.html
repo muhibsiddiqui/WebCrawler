@@ -1,0 +1,124 @@
+<!-- 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Panel</title>
+    <style>
+        body { font-family: Arial; background: #fdfdfd; padding: 20px; }
+        .container {
+            background: white; padding: 2rem;
+            max-width: 900px; margin: auto;
+            border-radius: 10px; box-shadow: 0 0 12px rgba(0,0,0,0.1);
+        }
+        .card {
+            background: #f4f4f4; padding: 1rem; border-left: 4px solid #2ecc71;
+            margin-bottom: 1rem;
+        }
+        a { color: #3498db; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Admin Panel</h2>
+    <a href="{{ url_for('dashboard') }}">Go to Dashboard</a>
+    <h3>All Users' Crawled Data</h3>
+    {% for user in users %}
+        <div class="card">
+            <h4>{{ user.username }} ({{ user.email }})</h4>
+            {% for data in user.crawled_data %}
+                <div class="card">
+                    <p><strong>URL:</strong> {{ data.url }}</p>
+                    <p>{{ data.content[:300] }}...</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+<script>
+    console.log("Admin Panel Ready.");
+</script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f9f9f9, #e0f7fa);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 2.5rem;
+            max-width: 1000px;
+            margin: auto;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            animation: fadeIn 1s ease-in-out;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        a {
+            display: inline-block;
+            background: #2ecc71;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 20px;
+            transition: background 0.3s;
+        }
+        a:hover {
+            background: #27ae60;
+        }
+        .card {
+            background: #f9f9f9;
+            padding: 1.2rem;
+            border-left: 5px solid #2ecc71;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        p {
+            color: #555;
+        }
+        h4 {
+            color: #2c3e50;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Admin Panel</h2>
+    <a href="{{ url_for('dashboard') }}">← Go to Dashboard</a>
+    <h3>All Users' Crawled Data</h3>
+    {% for user in users %}
+        <div class="card">
+            <h4>{{ user.username }} ({{ user.email }})</h4>
+            {% for data in user.crawled_data %}
+                <div class="card" style="border-left: 5px solid #3498db;">
+                    <p><strong>URL:</strong> {{ data.url }}</p>
+                    <p>{{ data.content[:300] }}...</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+
+<script>
+    console.log("Admin Panel Ready.");
+</script>
+</body>
+</html>
